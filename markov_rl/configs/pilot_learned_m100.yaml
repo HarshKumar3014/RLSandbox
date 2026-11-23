@@ -1,0 +1,11 @@
+# Timing pilot: fixed N=32 (upper bound), mixed k.
+base: rl_base.yaml
+name: pilot_learned_m100
+mode: learned
+m: 100
+seed: 0
+init_adapter: checkpoints/warmup_mem
+steps: 20
+fixed_N: 32
+train_on_zero_adv: true
+save_every: 100000

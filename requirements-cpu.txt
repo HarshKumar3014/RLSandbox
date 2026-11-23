@@ -1,0 +1,8 @@
+# Local CPU/MPS testing (no vllm). Same versions as the GPU box.
+torch==2.8.0
+transformers==4.56.2
+peft==0.17.1
+accelerate==1.10.1
+pyyaml==6.0.2
+numpy==2.2.6
+pytest==8.4.2

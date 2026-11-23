@@ -1,0 +1,7 @@
+# Tier A
+base: rl_base.yaml
+name: rl_learned_m25_s1
+mode: learned
+m: 25
+seed: 1
+init_adapter: checkpoints/warmup_mem

@@ -1,0 +1,7 @@
+# Warm-up for full and tail runs: full-context traces, no <mem> spans.
+name: warmup_plain
+data: data/warmup_plain.jsonl
+epochs: 3
+lr: 2.0e-4
+batch_size: 16
+seed: 0

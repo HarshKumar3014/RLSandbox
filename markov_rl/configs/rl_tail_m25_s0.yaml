@@ -1,0 +1,7 @@
+# Tier A
+base: rl_base.yaml
+name: rl_tail_m25_s0
+mode: tail
+m: 25
+seed: 0
+init_adapter: checkpoints/warmup_plain

@@ -1,0 +1,9 @@
+# GPU box (vast.ai A100, CUDA 12.x driver). vllm pins torch==2.8.0.
+vllm==0.10.2
+torch==2.8.0
+transformers==4.56.2
+peft==0.17.1
+accelerate==1.10.1
+pyyaml==6.0.2
+numpy==2.2.6
+pytest==8.4.2

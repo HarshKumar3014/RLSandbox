@@ -1,0 +1,24 @@
+# Shared GRPO settings for every RL run (see grpo.DEFAULTS for all keys).
+steps: 300
+programs_per_step: 32
+group_size: 8
+ks: [4, 8, 16]
+max_chunks: 12
+C: null            # null -> chosen_C in results/tokenization.json (192)
+n_lo: 4
+n_hi: 8
+n_max: 32
+n_inc: 4
+curriculum_threshold: 0.7
+curriculum_window: 5
+lr: 2.0e-5
+clip_eps: 0.2
+kl_coef: 0.0
+loss_agg: seq_mean
+ppo_epochs: 1
+num_minibatches: 1
+temperature: 1.0
+backend: vllm
+gpu_mem: 0.35
+max_model_len: 4096
+save_every: 50

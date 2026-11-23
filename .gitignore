@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+.pytest_cache/
+checkpoints/
+logs/
+*.tgz
+.DS_Store
+results/grpo/
+results/eval/

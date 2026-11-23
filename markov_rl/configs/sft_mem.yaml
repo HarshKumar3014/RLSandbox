@@ -1,0 +1,7 @@
+# Warm-up for learned runs ONLY: same traces with full-state <mem> dumps inserted.
+name: warmup_mem
+data: data/warmup_mem.jsonl
+epochs: 3
+lr: 2.0e-4
+batch_size: 16
+seed: 0
