@@ -4,6 +4,7 @@
 set -euo pipefail
 source .venv/bin/activate
 export HF_HOME=${HF_HOME:-/workspace/hf}
+export VLLM_WORKER_MULTIPROC_METHOD=spawn
 RATE=${1:-1.20}; shift || true
 MODES=${@:-learned full}
 python -m markov_rl.pilot_timing --modes $MODES 2>&1 | tee -a logs/pilot.log

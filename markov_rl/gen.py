@@ -4,7 +4,12 @@ generate(prompts=[token ids], max_tokens, stop=[str], temperature) -> [GenOut]
 """
 from __future__ import annotations
 
+import os
 from dataclasses import dataclass
+
+# vLLM's engine runs in a child process. Forking after CUDA is initialized in the parent (HF policy,
+# torch.cuda calls) fails with "Cannot re-initialize CUDA in forked subprocess", so always spawn.
+os.environ.setdefault("VLLM_WORKER_MULTIPROC_METHOD", "spawn")
 
 import torch
 
