@@ -118,6 +118,22 @@ def test_full_mode_reconstructs_sft_format(tok):
     assert m["format_ok"] == 1.0 and m["trace_acc"] == 1.0
 
 
+def test_full_mode_answer_split_across_chunks(tok):
+    """Regression: `Answer: 75` cut at a chunk boundary used to be missed (episode scored 0)."""
+    rng = random.Random(8)
+    prog = interp.sample_program(rng, 10, 4)
+    ans = interp.fmt(interp.answer_from(prog))
+    trace = interp.render_trace(prog)
+    head, tail = trace[: trace.index("Answer") + len("Answer")], trace[trace.index("Answer") + len("Answer"):]
+    for split in [(head, tail), (trace[:-1], trace[-1:])]:  # "...Answer" | ": 75"  and  "...Answer: 7" | "5"
+        env = MarkovEnv(EnvConfig(mode="full", C=4096, m=0), tok)
+        env.reset(prog)
+        _, r, done, _ = env.step(GenOut(split[0], tok.encode(split[0]), 0, "length"))
+        assert not done
+        _, r, done, _ = env.step(GenOut(split[1], tok.encode(split[1]) + [tok.eos_token_id], 0, "stop"))
+        assert done and r == 1.0 and env.pred == int(ans)
+
+
 def test_out_of_chunks_zero_reward(tok):
     rng = random.Random(5)
     prog = interp.sample_program(rng, 30, 4)

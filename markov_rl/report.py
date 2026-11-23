@@ -149,6 +149,10 @@ CHANGES = [
     "Resuming from a carried state is learned purely by RL. If learned-mode reward stays ~0 at small N in the first "
     "RL steps, the fallback is to add resumption examples to warmup_mem (prompt = program + true state at a random "
     "step, completion = rest of trace) - this would be a change to the plan.",
+    "Bug found and fixed during the milestone run: in full mode the env looked for `Answer: XX` only inside the "
+    "current chunk, so an answer line straddling a 192-token boundary (`...Answer` | `: 75`) was missed and the "
+    "episode scored 0 although the model was right (hit warmup_mem@full hardest: first run 90.7% EM with 100% trace "
+    "accuracy). Full mode now parses the concatenated output. The numbers in this file are from the re-run.",
     "Eval reuses the same chunked env as RL (mode=full for the warm-up eval) so the warm-up numbers are directly "
     "comparable to RL numbers.",
     "Local dev machine has no CUDA GPU: all GPU numbers come from the vast.ai A100; CPU tests cover interpreter, env, "

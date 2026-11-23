@@ -77,7 +77,7 @@ class MarkovEnv:
             "state_before": state_before,
             "prompt_len": len(self._obs["prompt_ids"]),
         })
-        pred = interp.parse_answer(text)
+        pred = self._final_answer(text, action.finish_reason)
         if pred is not None:
             self.done, self.pred = True, pred
             self.reward = float(pred == self.answer)
@@ -121,6 +121,21 @@ class MarkovEnv:
     @property
     def _special_ids(self) -> set[int]:
         return set(self.tok.all_special_ids)
+
+    def _final_answer(self, text: str, finish_reason: str) -> int | None:
+        """In full mode the trace is continuous, so the `Answer:` line can straddle a chunk boundary
+        (`...Answer` | `: 75`): parse the concatenated output, and if the chunk was cut by the token budget
+        right after the digits, wait for the next chunk to confirm the number is complete.
+        Other modes see only the current chunk (the rest is gone after the reset)."""
+        if self.cfg.mode != "full":
+            return interp.parse_answer(text)
+        full = "".join(c["text"] for c in self.chunks)
+        ms = list(interp.ANSWER_RE.finditer(full))
+        if not ms:
+            return None
+        if finish_reason == "length" and ms[-1].end() == len(full.rstrip(" ")) and len(self.chunks) < self.cfg.max_chunks:
+            return None  # digits may continue in the next chunk
+        return int(ms[-1].group(1))
 
     def _next_state(self, text: str, ids: list[int]) -> str:
         m = self.cfg.m
