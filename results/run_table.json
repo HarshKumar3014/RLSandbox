@@ -1,0 +1,92 @@
+{
+ "rate": 0.817,
+ "rows": [
+  {
+   "tier": "A",
+   "run": "full-context RL",
+   "init": "warmup_plain",
+   "m": [
+    "n/a"
+   ],
+   "seeds": 2,
+   "n_runs": 2,
+   "gpu_h_per_run_upper": 5.378008300176373,
+   "gpu_h_per_run_curriculum": 2.0361942703525227,
+   "total_upper": 10.756016600352746,
+   "total_curriculum": 4.072388540705045
+  },
+  {
+   "tier": "A",
+   "run": "tail RL",
+   "init": "warmup_plain",
+   "m": [
+    25,
+    100
+   ],
+   "seeds": 2,
+   "n_runs": 4,
+   "gpu_h_per_run_upper": 12.120412772562768,
+   "gpu_h_per_run_curriculum": 4.566124501989948,
+   "total_upper": 48.48165109025107,
+   "total_curriculum": 18.26449800795979
+  },
+  {
+   "tier": "A",
+   "run": "learned RL",
+   "init": "warmup_mem",
+   "m": [
+    25,
+    100
+   ],
+   "seeds": 2,
+   "n_runs": 4,
+   "gpu_h_per_run_upper": 12.120412772562768,
+   "gpu_h_per_run_curriculum": 4.566124501989948,
+   "total_upper": 48.48165109025107,
+   "total_curriculum": 18.26449800795979
+  },
+  {
+   "tier": "B",
+   "run": "tail RL",
+   "init": "warmup_plain",
+   "m": [
+    50,
+    200
+   ],
+   "seeds": 1,
+   "n_runs": 2,
+   "gpu_h_per_run_upper": 12.120412772562768,
+   "gpu_h_per_run_curriculum": 4.566124501989948,
+   "total_upper": 24.240825545125535,
+   "total_curriculum": 9.132249003979895
+  },
+  {
+   "tier": "B",
+   "run": "learned RL",
+   "init": "warmup_mem",
+   "m": [
+    50,
+    200
+   ],
+   "seeds": 1,
+   "n_runs": 2,
+   "gpu_h_per_run_upper": 12.120412772562768,
+   "gpu_h_per_run_curriculum": 4.566124501989948,
+   "total_upper": 24.240825545125535,
+   "total_curriculum": 9.132249003979895
+  }
+ ],
+ "shared_gpu_h": 4.373088171813223,
+ "grand_total": {
+  "upper": 160.5740580429192,
+  "curriculum": 63.23897073639763
+ },
+ "lean_total": {
+  "upper": 56.41001175792128,
+  "curriculum": 22.851044645806155
+ },
+ "lower_bound": false,
+ "notes": [
+  "tail cost taken from the learned pilot (no tail pilot run)."
+ ]
+}

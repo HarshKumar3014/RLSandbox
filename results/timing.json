@@ -1,0 +1,79 @@
+{
+ "modes": {
+  "learned": {
+   "run": "pilot_learned",
+   "steps_measured": 18,
+   "sec_per_step": 145.04233479499817,
+   "gen_sec_per_step": 80.6647466023763,
+   "train_sec_per_step": 63.95323770576053,
+   "sync_sec_per_step": 0.4243504868613349,
+   "tokens_generated_per_step": 463016.5,
+   "train_tokens_per_step": 463016.5,
+   "train_seqs_per_step": 3071.1111111111113,
+   "mean_chunks": 11.996527777777779,
+   "answered_frac": 0.0006510416666666666,
+   "reward_mean": 0.0,
+   "peak_context_tokens": 584,
+   "peak_torch_mem_gb": 12.062851584,
+   "peak_device_mem_gb": 55.312777216,
+   "startup_s": 120.78554272651672,
+   "gen_only_lower_bound": false,
+   "est_gpu_h_per_300_steps_fixedN32_upper": 12.120412772562768,
+   "curriculum_scale": 0.375,
+   "est_gpu_h_per_300_steps_curriculum": 4.566124501989948
+  },
+  "full": {
+   "run": "pilot_full",
+   "steps_measured": 18,
+   "sec_per_step": 64.16282937261794,
+   "gen_sec_per_step": 41.890877525011696,
+   "train_sec_per_step": 21.799638165367973,
+   "sync_sec_per_step": 0.4723136822382609,
+   "tokens_generated_per_step": 121144.44444444444,
+   "train_tokens_per_step": 121144.44444444444,
+   "train_seqs_per_step": 768.0,
+   "mean_chunks": 3.0,
+   "answered_frac": 1.0,
+   "reward_mean": 0.9991319444444444,
+   "peak_context_tokens": 825,
+   "peak_torch_mem_gb": 12.443148288,
+   "peak_device_mem_gb": 54.824206336,
+   "startup_s": 111.9810688495636,
+   "gen_only_lower_bound": false,
+   "est_gpu_h_per_300_steps_fixedN32_upper": 5.378008300176373,
+   "curriculum_scale": 0.375,
+   "est_gpu_h_per_300_steps_curriculum": 2.0361942703525227
+  }
+ },
+ "config": {
+  "modes": [
+   "learned",
+   "full"
+  ],
+  "steps": 20,
+  "gen_only": false,
+  "extra": []
+ },
+ "git_hash": "a6db75a021a74858e4f7e713ce9e753dee2f409b",
+ "argv": [
+  "/workspace/RLSandbox/markov_rl/pilot_timing.py",
+  "--modes",
+  "learned",
+  "full"
+ ],
+ "python": "3.11.17",
+ "host": "ded04d138df6",
+ "time": "2026-11-23 04:55:10",
+ "torch": "2.8.0+cu128",
+ "gpu": "NVIDIA A100-SXM4-80GB",
+ "transformers": "4.56.2",
+ "peft": "0.17.1",
+ "vllm": "0.10.2",
+ "assumptions": [
+  "Fixed N=32 for every program: worst-case length, so (a) is an upper bound for a 300-step run.",
+  "(b) scales (a) by mean(E[N])/32 under a linear ramp of max N from 8 to 32 over 300 steps, N~U[4, maxN]; assumes step cost linear in N. Failing rollouts that use all chunks regardless of N make (b) optimistic.",
+  "First 2 steps excluded from averages; per-run startup (model load, vLLM init) added once.",
+  "train_on_zero_adv=True: backward runs on every chunk even when advantages are 0 (no optimizer step then), so train time reflects a batch where every group has signal (upper bound on train cost).",
+  "Cost assumed independent of m (pilot at m=100). Tail cost = learned cost unless a tail pilot was run."
+ ]
+}

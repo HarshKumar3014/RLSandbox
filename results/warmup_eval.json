@@ -1,0 +1,899 @@
+{
+ "config": {
+  "milestone": true,
+  "adapter": null,
+  "name": null,
+  "mode": "full",
+  "m": 100,
+  "C": null,
+  "max_chunks": 12,
+  "split": "test",
+  "Ns": "8,16,32",
+  "n_per_cell": 200,
+  "backend": "vllm",
+  "gpu_mem": 0.85,
+  "out": null
+ },
+ "git_hash": "a6db75a021a74858e4f7e713ce9e753dee2f409b",
+ "argv": [
+  "/workspace/RLSandbox/markov_rl/eval.py",
+  "--milestone",
+  "--split",
+  "test",
+  "--Ns",
+  "8,16,32",
+  "--n_per_cell",
+  "200"
+ ],
+ "python": "3.11.17",
+ "host": "ded04d138df6",
+ "time": "2026-11-23 03:40:29",
+ "torch": "2.8.0+cu128",
+ "gpu": "NVIDIA A100-SXM4-80GB",
+ "transformers": "4.56.2",
+ "peft": "0.17.1",
+ "vllm": "0.10.2",
+ "split": "test",
+ "Ns": [
+  8,
+  16,
+  32
+ ],
+ "n_per_cell": 200,
+ "C": 192,
+ "wall_clock_s": 441.61539912223816,
+ "runs": {
+  "warmup_plain@full": {
+   "name": "warmup_plain_full",
+   "env": {
+    "mode": "full",
+    "C": 192,
+    "m": 0,
+    "max_chunks": 12
+   },
+   "overall": {
+    "n": 1800,
+    "exact_match": 0.9983333333333333,
+    "exact_match_ci95": [
+     0.9961111111111111,
+     1.0
+    ],
+    "format_compliance": 0.9988888888888889,
+    "arith_acc": 1.0,
+    "trace_acc": 0.9999826388888889,
+    "mem_dumps": 0,
+    "mem_exact": null,
+    "state_fidelity": null,
+    "mean_chunks": 2.011111111111111,
+    "mean_tokens": 274.04055555555556,
+    "mean_peak_context": 459.56388888888887
+   },
+   "cells": {
+    "N16": {
+     "n": 600,
+     "exact_match": 0.9966666666666667,
+     "exact_match_ci95": [
+      0.9916666666666667,
+      1.0
+     ],
+     "format_compliance": 0.9966666666666667,
+     "arith_acc": 1.0,
+     "trace_acc": 1.0,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": null,
+     "mean_chunks": 2.033333333333333,
+     "mean_tokens": 234.45,
+     "mean_peak_context": 400.4816666666667
+    },
+    "N16_k16": {
+     "n": 200,
+     "exact_match": 0.995,
+     "exact_match_ci95": [
+      0.985,
+      1.0
+     ],
+     "format_compliance": 0.995,
+     "arith_acc": 1.0,
+     "trace_acc": 1.0,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": null,
+     "mean_chunks": 2.05,
+     "mean_tokens": 233.77,
+     "mean_peak_context": 426.475
+    },
+    "N16_k4": {
+     "n": 200,
+     "exact_match": 0.995,
+     "exact_match_ci95": [
+      0.985,
+      1.0
+     ],
+     "format_compliance": 0.995,
+     "arith_acc": 1.0,
+     "trace_acc": 1.0,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": null,
+     "mean_chunks": 2.05,
+     "mean_tokens": 234.815,
+     "mean_peak_context": 379.32
+    },
+    "N16_k8": {
+     "n": 200,
+     "exact_match": 1.0,
+     "exact_match_ci95": [
+      1.0,
+      1.0
+     ],
+     "format_compliance": 1.0,
+     "arith_acc": 1.0,
+     "trace_acc": 1.0,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": null,
+     "mean_chunks": 2.0,
+     "mean_tokens": 234.765,
+     "mean_peak_context": 395.65
+    },
+    "N32": {
+     "n": 600,
+     "exact_match": 0.9983333333333333,
+     "exact_match_ci95": [
+      0.995,
+      1.0
+     ],
+     "format_compliance": 1.0,
+     "arith_acc": 1.0,
+     "trace_acc": 0.9999479166666667,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": null,
+     "mean_chunks": 3.0,
+     "mean_tokens": 471.17,
+     "mean_peak_context": 754.575
+    },
+    "N32_k16": {
+     "n": 200,
+     "exact_match": 1.0,
+     "exact_match_ci95": [
+      1.0,
+      1.0
+     ],
+     "format_compliance": 1.0,
+     "arith_acc": 1.0,
+     "trace_acc": 1.0,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": null,
+     "mean_chunks": 3.0,
+     "mean_tokens": 470.275,
+     "mean_peak_context": 780.245
+    },
+    "N32_k4": {
+     "n": 200,
+     "exact_match": 0.995,
+     "exact_match_ci95": [
+      0.985,
+      1.0
+     ],
+     "format_compliance": 1.0,
+     "arith_acc": 1.0,
+     "trace_acc": 0.99984375,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": null,
+     "mean_chunks": 3.0,
+     "mean_tokens": 471.69,
+     "mean_peak_context": 733.205
+    },
+    "N32_k8": {
+     "n": 200,
+     "exact_match": 1.0,
+     "exact_match_ci95": [
+      1.0,
+      1.0
+     ],
+     "format_compliance": 1.0,
+     "arith_acc": 1.0,
+     "trace_acc": 1.0,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": null,
+     "mean_chunks": 3.0,
+     "mean_tokens": 471.545,
+     "mean_peak_context": 750.275
+    },
+    "N8": {
+     "n": 600,
+     "exact_match": 1.0,
+     "exact_match_ci95": [
+      1.0,
+      1.0
+     ],
+     "format_compliance": 1.0,
+     "arith_acc": 1.0,
+     "trace_acc": 1.0,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": null,
+     "mean_chunks": 1.0,
+     "mean_tokens": 116.50166666666667,
+     "mean_peak_context": 223.635
+    },
+    "N8_k16": {
+     "n": 200,
+     "exact_match": 1.0,
+     "exact_match_ci95": [
+      1.0,
+      1.0
+     ],
+     "format_compliance": 1.0,
+     "arith_acc": 1.0,
+     "trace_acc": 1.0,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": null,
+     "mean_chunks": 1.0,
+     "mean_tokens": 116.43,
+     "mean_peak_context": 250.32
+    },
+    "N8_k4": {
+     "n": 200,
+     "exact_match": 1.0,
+     "exact_match_ci95": [
+      1.0,
+      1.0
+     ],
+     "format_compliance": 1.0,
+     "arith_acc": 1.0,
+     "trace_acc": 1.0,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": null,
+     "mean_chunks": 1.0,
+     "mean_tokens": 116.585,
+     "mean_peak_context": 202.33
+    },
+    "N8_k8": {
+     "n": 200,
+     "exact_match": 1.0,
+     "exact_match_ci95": [
+      1.0,
+      1.0
+     ],
+     "format_compliance": 1.0,
+     "arith_acc": 1.0,
+     "trace_acc": 1.0,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": null,
+     "mean_chunks": 1.0,
+     "mean_tokens": 116.49,
+     "mean_peak_context": 218.255
+    },
+    "k16": {
+     "n": 600,
+     "exact_match": 0.9983333333333333,
+     "exact_match_ci95": [
+      0.995,
+      1.0
+     ],
+     "format_compliance": 0.9983333333333333,
+     "arith_acc": 1.0,
+     "trace_acc": 1.0,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": null,
+     "mean_chunks": 2.0166666666666666,
+     "mean_tokens": 273.4916666666667,
+     "mean_peak_context": 485.68
+    },
+    "k4": {
+     "n": 600,
+     "exact_match": 0.9966666666666667,
+     "exact_match_ci95": [
+      0.9916666666666667,
+      1.0
+     ],
+     "format_compliance": 0.9983333333333333,
+     "arith_acc": 1.0,
+     "trace_acc": 0.9999479166666667,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": null,
+     "mean_chunks": 2.0166666666666666,
+     "mean_tokens": 274.36333333333334,
+     "mean_peak_context": 438.285
+    },
+    "k8": {
+     "n": 600,
+     "exact_match": 1.0,
+     "exact_match_ci95": [
+      1.0,
+      1.0
+     ],
+     "format_compliance": 1.0,
+     "arith_acc": 1.0,
+     "trace_acc": 1.0,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": null,
+     "mean_chunks": 2.0,
+     "mean_tokens": 274.26666666666665,
+     "mean_peak_context": 454.7266666666667
+    }
+   },
+   "gen_time_s": 92.0926399230957
+  },
+  "warmup_mem@full": {
+   "name": "warmup_mem_full",
+   "env": {
+    "mode": "full",
+    "C": 192,
+    "m": 0,
+    "max_chunks": 12
+   },
+   "overall": {
+    "n": 1800,
+    "exact_match": 0.9066666666666666,
+    "exact_match_ci95": [
+     0.8922222222222222,
+     0.92
+    ],
+    "format_compliance": 0.9077777777777778,
+    "arith_acc": 1.0,
+    "trace_acc": 0.9999652777777778,
+    "mem_dumps": 2964,
+    "mem_exact": 0.9996626180836707,
+    "state_fidelity": null,
+    "mean_chunks": 3.2827777777777776,
+    "mean_tokens": 367.7944444444444,
+    "mean_peak_context": 552.5005555555556
+   },
+   "cells": {
+    "N16": {
+     "n": 600,
+     "exact_match": 0.92,
+     "exact_match_ci95": [
+      0.8966666666666666,
+      0.9416666666666667
+     ],
+     "format_compliance": 0.92,
+     "arith_acc": 1.0,
+     "trace_acc": 1.0,
+     "mem_dumps": 800,
+     "mem_exact": 1.0,
+     "state_fidelity": null,
+     "mean_chunks": 2.955,
+     "mean_tokens": 310.80333333333334,
+     "mean_peak_context": 476.1483333333333
+    },
+    "N16_k16": {
+     "n": 200,
+     "exact_match": 0.76,
+     "exact_match_ci95": [
+      0.7,
+      0.815
+     ],
+     "format_compliance": 0.76,
+     "arith_acc": 1.0,
+     "trace_acc": 1.0,
+     "mem_dumps": 400,
+     "mem_exact": 1.0,
+     "state_fidelity": null,
+     "mean_chunks": 4.865,
+     "mean_tokens": 390.88,
+     "mean_peak_context": 581.475
+    },
+    "N16_k4": {
+     "n": 200,
+     "exact_match": 1.0,
+     "exact_match_ci95": [
+      1.0,
+      1.0
+     ],
+     "format_compliance": 1.0,
+     "arith_acc": 1.0,
+     "trace_acc": 1.0,
+     "mem_dumps": 200,
+     "mem_exact": 1.0,
+     "state_fidelity": null,
+     "mean_chunks": 2.0,
+     "mean_tokens": 260.765,
+     "mean_peak_context": 405.32
+    },
+    "N16_k8": {
+     "n": 200,
+     "exact_match": 1.0,
+     "exact_match_ci95": [
+      1.0,
+      1.0
+     ],
+     "format_compliance": 1.0,
+     "arith_acc": 1.0,
+     "trace_acc": 1.0,
+     "mem_dumps": 200,
+     "mem_exact": 1.0,
+     "state_fidelity": null,
+     "mean_chunks": 2.0,
+     "mean_tokens": 280.765,
+     "mean_peak_context": 441.65
+    },
+    "N32": {
+     "n": 600,
+     "exact_match": 0.925,
+     "exact_match_ci95": [
+      0.9033333333333333,
+      0.945
+     ],
+     "format_compliance": 0.9283333333333333,
+     "arith_acc": 1.0,
+     "trace_acc": 0.9998958333333333,
+     "mem_dumps": 1964,
+     "mem_exact": 0.9994908350305499,
+     "state_fidelity": null,
+     "mean_chunks": 4.455,
+     "mean_tokens": 649.1616666666666,
+     "mean_peak_context": 932.0516666666666
+    },
+    "N32_k16": {
+     "n": 200,
+     "exact_match": 0.825,
+     "exact_match_ci95": [
+      0.77,
+      0.875
+     ],
+     "format_compliance": 0.825,
+     "arith_acc": 1.0,
+     "trace_acc": 0.9996875,
+     "mem_dumps": 839,
+     "mem_exact": 0.99880810488677,
+     "state_fidelity": null,
+     "mean_chunks": 6.055,
+     "mean_tokens": 797.71,
+     "mean_peak_context": 1106.455
+    },
+    "N32_k4": {
+     "n": 200,
+     "exact_match": 0.975,
+     "exact_match_ci95": [
+      0.955,
+      0.995
+     ],
+     "format_compliance": 0.975,
+     "arith_acc": 1.0,
+     "trace_acc": 1.0,
+     "mem_dumps": 525,
+     "mem_exact": 1.0,
+     "state_fidelity": null,
+     "mean_chunks": 3.23,
+     "mean_tokens": 540.14,
+     "mean_peak_context": 801.455
+    },
+    "N32_k8": {
+     "n": 200,
+     "exact_match": 0.975,
+     "exact_match_ci95": [
+      0.95,
+      0.995
+     ],
+     "format_compliance": 0.985,
+     "arith_acc": 1.0,
+     "trace_acc": 1.0,
+     "mem_dumps": 600,
+     "mem_exact": 1.0,
+     "state_fidelity": null,
+     "mean_chunks": 4.08,
+     "mean_tokens": 609.635,
+     "mean_peak_context": 888.245
+    },
+    "N8": {
+     "n": 600,
+     "exact_match": 0.875,
+     "exact_match_ci95": [
+      0.8466666666666667,
+      0.9017083333333332
+     ],
+     "format_compliance": 0.875,
+     "arith_acc": 1.0,
+     "trace_acc": 1.0,
+     "mem_dumps": 200,
+     "mem_exact": 1.0,
+     "state_fidelity": null,
+     "mean_chunks": 2.4383333333333335,
+     "mean_tokens": 143.41833333333332,
+     "mean_peak_context": 249.30166666666668
+    },
+    "N8_k16": {
+     "n": 200,
+     "exact_match": 0.625,
+     "exact_match_ci95": [
+      0.56,
+      0.69
+     ],
+     "format_compliance": 0.625,
+     "arith_acc": 1.0,
+     "trace_acc": 1.0,
+     "mem_dumps": 200,
+     "mem_exact": 1.0,
+     "state_fidelity": null,
+     "mean_chunks": 5.315,
+     "mean_tokens": 197.18,
+     "mean_peak_context": 327.32
+    },
+    "N8_k4": {
+     "n": 200,
+     "exact_match": 1.0,
+     "exact_match_ci95": [
+      1.0,
+      1.0
+     ],
+     "format_compliance": 1.0,
+     "arith_acc": 1.0,
+     "trace_acc": 1.0,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": null,
+     "mean_chunks": 1.0,
+     "mean_tokens": 116.585,
+     "mean_peak_context": 202.33
+    },
+    "N8_k8": {
+     "n": 200,
+     "exact_match": 1.0,
+     "exact_match_ci95": [
+      1.0,
+      1.0
+     ],
+     "format_compliance": 1.0,
+     "arith_acc": 1.0,
+     "trace_acc": 1.0,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": null,
+     "mean_chunks": 1.0,
+     "mean_tokens": 116.49,
+     "mean_peak_context": 218.255
+    },
+    "k16": {
+     "n": 600,
+     "exact_match": 0.7366666666666667,
+     "exact_match_ci95": [
+      0.7016666666666667,
+      0.7716666666666666
+     ],
+     "format_compliance": 0.7366666666666667,
+     "arith_acc": 1.0,
+     "trace_acc": 0.9998958333333333,
+     "mem_dumps": 1439,
+     "mem_exact": 0.9993050729673384,
+     "state_fidelity": null,
+     "mean_chunks": 5.411666666666667,
+     "mean_tokens": 461.92333333333335,
+     "mean_peak_context": 671.75
+    },
+    "k4": {
+     "n": 600,
+     "exact_match": 0.9916666666666667,
+     "exact_match_ci95": [
+      0.9833333333333333,
+      0.9983333333333333
+     ],
+     "format_compliance": 0.9916666666666667,
+     "arith_acc": 1.0,
+     "trace_acc": 1.0,
+     "mem_dumps": 725,
+     "mem_exact": 1.0,
+     "state_fidelity": null,
+     "mean_chunks": 2.0766666666666667,
+     "mean_tokens": 305.83,
+     "mean_peak_context": 469.70166666666665
+    },
+    "k8": {
+     "n": 600,
+     "exact_match": 0.9916666666666667,
+     "exact_match_ci95": [
+      0.9833333333333333,
+      0.9983333333333333
+     ],
+     "format_compliance": 0.995,
+     "arith_acc": 1.0,
+     "trace_acc": 1.0,
+     "mem_dumps": 800,
+     "mem_exact": 1.0,
+     "state_fidelity": null,
+     "mean_chunks": 2.36,
+     "mean_tokens": 335.63,
+     "mean_peak_context": 516.05
+    }
+   },
+   "gen_time_s": 114.91826462745667
+  },
+  "warmup_plain@tail_m100": {
+   "name": "warmup_plain_tail_m100",
+   "env": {
+    "mode": "tail",
+    "C": 192,
+    "m": 100,
+    "max_chunks": 12
+   },
+   "overall": {
+    "n": 1800,
+    "exact_match": 0.3333333333333333,
+    "exact_match_ci95": [
+     0.3094305555555556,
+     0.35444444444444445
+    ],
+    "format_compliance": 0.3338888888888889,
+    "arith_acc": 0.9967871889158018,
+    "trace_acc": 0.5017881944444444,
+    "mem_dumps": 0,
+    "mem_exact": null,
+    "state_fidelity": 0.25816761363636365,
+    "mean_chunks": 8.327777777777778,
+    "mean_tokens": 1573.726111111111,
+    "mean_peak_context": 419.7938888888889
+   },
+   "cells": {
+    "N16": {
+     "n": 600,
+     "exact_match": 0.0,
+     "exact_match_ci95": [
+      0.0,
+      0.0
+     ],
+     "format_compliance": 0.0016666666666666668,
+     "arith_acc": 0.9972171281275248,
+     "trace_acc": 0.3361458333333333,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": 0.25722537878787877,
+     "mean_chunks": 11.983333333333333,
+     "mean_tokens": 2300.6766666666667,
+     "mean_peak_context": 459.13
+    },
+    "N16_k16": {
+     "n": 200,
+     "exact_match": 0.0,
+     "exact_match_ci95": [
+      0.0,
+      0.0
+     ],
+     "format_compliance": 0.0,
+     "arith_acc": 0.998909699778046,
+     "trace_acc": 0.5146875,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": 0.22019886363636368,
+     "mean_chunks": 12.0,
+     "mean_tokens": 2304.0,
+     "mean_peak_context": 485.94
+    },
+    "N16_k4": {
+     "n": 200,
+     "exact_match": 0.0,
+     "exact_match_ci95": [
+      0.0,
+      0.0
+     ],
+     "format_compliance": 0.005,
+     "arith_acc": 0.9953475956221638,
+     "trace_acc": 0.1821875,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": 0.2944318181818182,
+     "mean_chunks": 11.95,
+     "mean_tokens": 2294.03,
+     "mean_peak_context": 437.44
+    },
+    "N16_k8": {
+     "n": 200,
+     "exact_match": 0.0,
+     "exact_match_ci95": [
+      0.0,
+      0.0
+     ],
+     "format_compliance": 0.0,
+     "arith_acc": 0.9974302918728186,
+     "trace_acc": 0.3115625,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": 0.2570454545454545,
+     "mean_chunks": 12.0,
+     "mean_tokens": 2304.0,
+     "mean_peak_context": 454.01
+    },
+    "N32": {
+     "n": 600,
+     "exact_match": 0.0,
+     "exact_match_ci95": [
+      0.0,
+      0.0
+     ],
+     "format_compliance": 0.0,
+     "arith_acc": 0.9961893689853387,
+     "trace_acc": 0.16921875,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": 0.25910984848484847,
+     "mean_chunks": 12.0,
+     "mean_tokens": 2304.0,
+     "mean_peak_context": 576.6166666666667
+    },
+    "N32_k16": {
+     "n": 200,
+     "exact_match": 0.0,
+     "exact_match_ci95": [
+      0.0,
+      0.0
+     ],
+     "format_compliance": 0.0,
+     "arith_acc": 0.9988668333854329,
+     "trace_acc": 0.2546875,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": 0.21090909090909093,
+     "mean_chunks": 12.0,
+     "mean_tokens": 2304.0,
+     "mean_peak_context": 603.1
+    },
+    "N32_k4": {
+     "n": 200,
+     "exact_match": 0.0,
+     "exact_match_ci95": [
+      0.0,
+      0.0
+     ],
+     "format_compliance": 0.0,
+     "arith_acc": 0.996172102281427,
+     "trace_acc": 0.10671875,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": 0.3219318181818182,
+     "mean_chunks": 12.0,
+     "mean_tokens": 2304.0,
+     "mean_peak_context": 554.745
+    },
+    "N32_k8": {
+     "n": 200,
+     "exact_match": 0.0,
+     "exact_match_ci95": [
+      0.0,
+      0.0
+     ],
+     "format_compliance": 0.0,
+     "arith_acc": 0.9935406046927896,
+     "trace_acc": 0.14625,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": 0.24448863636363638,
+     "mean_chunks": 12.0,
+     "mean_tokens": 2304.0,
+     "mean_peak_context": 572.005
+    },
+    "N8": {
+     "n": 600,
+     "exact_match": 1.0,
+     "exact_match_ci95": [
+      1.0,
+      1.0
+     ],
+     "format_compliance": 1.0,
+     "arith_acc": 1.0,
+     "trace_acc": 1.0,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": null,
+     "mean_chunks": 1.0,
+     "mean_tokens": 116.50166666666667,
+     "mean_peak_context": 223.635
+    },
+    "N8_k16": {
+     "n": 200,
+     "exact_match": 1.0,
+     "exact_match_ci95": [
+      1.0,
+      1.0
+     ],
+     "format_compliance": 1.0,
+     "arith_acc": 1.0,
+     "trace_acc": 1.0,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": null,
+     "mean_chunks": 1.0,
+     "mean_tokens": 116.43,
+     "mean_peak_context": 250.32
+    },
+    "N8_k4": {
+     "n": 200,
+     "exact_match": 1.0,
+     "exact_match_ci95": [
+      1.0,
+      1.0
+     ],
+     "format_compliance": 1.0,
+     "arith_acc": 1.0,
+     "trace_acc": 1.0,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": null,
+     "mean_chunks": 1.0,
+     "mean_tokens": 116.585,
+     "mean_peak_context": 202.33
+    },
+    "N8_k8": {
+     "n": 200,
+     "exact_match": 1.0,
+     "exact_match_ci95": [
+      1.0,
+      1.0
+     ],
+     "format_compliance": 1.0,
+     "arith_acc": 1.0,
+     "trace_acc": 1.0,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": null,
+     "mean_chunks": 1.0,
+     "mean_tokens": 116.49,
+     "mean_peak_context": 218.255
+    },
+    "k16": {
+     "n": 600,
+     "exact_match": 0.3333333333333333,
+     "exact_match_ci95": [
+      0.295,
+      0.36837499999999995
+     ],
+     "format_compliance": 0.3333333333333333,
+     "arith_acc": 0.9989162261854965,
+     "trace_acc": 0.5897916666666667,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": 0.2155539772727273,
+     "mean_chunks": 8.333333333333334,
+     "mean_tokens": 1574.81,
+     "mean_peak_context": 446.4533333333333
+    },
+    "k4": {
+     "n": 600,
+     "exact_match": 0.3333333333333333,
+     "exact_match_ci95": [
+      0.295,
+      0.36837499999999995
+     ],
+     "format_compliance": 0.335,
+     "arith_acc": 0.9958642274302322,
+     "trace_acc": 0.42963541666666666,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": 0.3081818181818182,
+     "mean_chunks": 8.316666666666666,
+     "mean_tokens": 1571.5383333333334,
+     "mean_peak_context": 398.1716666666667
+    },
+    "k8": {
+     "n": 600,
+     "exact_match": 0.3333333333333333,
+     "exact_match_ci95": [
+      0.295,
+      0.36837499999999995
+     ],
+     "format_compliance": 0.3333333333333333,
+     "arith_acc": 0.995611226219627,
+     "trace_acc": 0.4859375,
+     "mem_dumps": 0,
+     "mem_exact": null,
+     "state_fidelity": 0.2507670454545455,
+     "mean_chunks": 8.333333333333334,
+     "mean_tokens": 1574.83,
+     "mean_peak_context": 414.75666666666666
+    }
+   },
+   "gen_time_s": 230.44568848609924
+  }
+ }
+}
